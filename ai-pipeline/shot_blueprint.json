@@ -1,0 +1,133 @@
+{
+  "project": "夜航 / NIGHT PASSAGE",
+  "artist": "王安畅",
+  "deliverable": "QQ音乐 / 腾讯音乐人 单曲 AI MV（16:9 主版 + 9:16 竖版）",
+  "duration_sec": 222,
+  "shot_count": 6,
+  "style_prompt": "cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette",
+  "negative_prompt": "text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts",
+  "specs": {
+    "resolution": "1920x1080 (master) / 1080x1920 (vertical)",
+    "fps": 24,
+    "color": "Rec.709, teal-amber split tone, film grain 0.028",
+    "loudness": "-14 LUFS (流媒体)"
+  },
+  "workflow": [
+    {
+      "stage": "1 音乐分析",
+      "tool": "librosa / 手动打点",
+      "output": "BPM、段落结构、情绪曲线 → shot 时间轴"
+    },
+    {
+      "stage": "2 分镜蓝图",
+      "tool": "本仓库 ai-pipeline/shot_blueprint.json",
+      "output": "每镜图像 prompt + 图生视频 prompt"
+    },
+    {
+      "stage": "3 关键帧生成",
+      "tool": "生图模型（按 prompt 批量）",
+      "output": "每镜 3 张候选，人工选 1"
+    },
+    {
+      "stage": "4 图生视频",
+      "tool": "Kling / Runway / Pika / Veo / Sora",
+      "output": "每镜 5s 素材，24fps"
+    },
+    {
+      "stage": "5 合成与调色",
+      "tool": "剪映 / PR / DaVinci / AE",
+      "output": "按段落拼接、转场、统一色调"
+    },
+    {
+      "stage": "6 出片与发布",
+      "tool": "批处理脚本 + 平台接口",
+      "output": "16:9 + 9:16 + 封面三件套，自动上传"
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S01",
+      "shot_name": "远景推进",
+      "shot_size": "大远景",
+      "t_start": 0.0,
+      "t_end": 6.0,
+      "duration": 6.0,
+      "camera_move": "slow push-in",
+      "scene_desc": "雨夜荒野，远处一盏提灯，人不可见",
+      "keyframe_image_prompt": "extreme wide shot, a tiny brass lantern glowing in a vast dark rain field, no human, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette",
+      "image_to_video_prompt": "slow dolly in toward the lantern, rain falling, mist drifting left to right, 24fps, no camera shake",
+      "negative_prompt": "text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts",
+      "seed": 20260001
+    },
+    {
+      "shot_id": "S02",
+      "shot_name": "灯芯特写",
+      "shot_size": "特写",
+      "t_start": 6.0,
+      "t_end": 10.5,
+      "duration": 4.5,
+      "camera_move": "handheld micro-drift",
+      "scene_desc": "灯罩内灯芯与火焰，玻璃上有水痕",
+      "keyframe_image_prompt": "macro close-up of a candle flame inside a brass lantern glass, water droplets on glass, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette",
+      "image_to_video_prompt": "static macro shot with subtle handheld breathing, flame flickers gently, focus breathing, 24fps",
+      "negative_prompt": "text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts",
+      "seed": 20260002
+    },
+    {
+      "shot_id": "S03",
+      "shot_name": "雨打玻璃",
+      "shot_size": "近景",
+      "t_start": 10.5,
+      "t_end": 15.5,
+      "duration": 5.0,
+      "camera_move": "slow lateral track",
+      "scene_desc": "雨点打在灯罩玻璃上，水痕滑落",
+      "keyframe_image_prompt": "close-up of rain hitting the glass of a lit brass lantern, streaks running down, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette",
+      "image_to_video_prompt": "slow lateral camera track, raindrops hit glass and slide down, water refracts the flame, 24fps",
+      "negative_prompt": "text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts",
+      "seed": 20260003
+    },
+    {
+      "shot_id": "S04",
+      "shot_name": "光柱穿雾",
+      "shot_size": "中景",
+      "t_start": 15.5,
+      "t_end": 22.5,
+      "duration": 7.0,
+      "camera_move": "static with moving fog",
+      "scene_desc": "灯光在雨雾里形成光柱，体积光可见",
+      "keyframe_image_prompt": "medium shot, visible volumetric light shafts through fog from a brass lantern, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette",
+      "image_to_video_prompt": "static camera, volumetric god rays pulse slowly, fog drifts, rain layers parallax, 24fps",
+      "negative_prompt": "text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts",
+      "seed": 20260004
+    },
+    {
+      "shot_id": "S05",
+      "shot_name": "地面倒影",
+      "shot_size": "近景",
+      "t_start": 22.5,
+      "t_end": 28.0,
+      "duration": 5.5,
+      "camera_move": "low-angle tracking",
+      "scene_desc": "低机位贴近水面，提灯在水洼里的倒影",
+      "keyframe_image_prompt": "low angle shot, lantern reflection in a rain puddle, ripples, wet asphalt, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette",
+      "image_to_video_prompt": "low angle slow track along the water surface, ripples distort the reflection, rain splashes, 24fps",
+      "negative_prompt": "text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts",
+      "seed": 20260005
+    },
+    {
+      "shot_id": "S06",
+      "shot_name": "背影剪影",
+      "shot_size": "全景",
+      "t_start": 28.0,
+      "t_end": 34.0,
+      "duration": 6.0,
+      "camera_move": "slow pull-out",
+      "scene_desc": "提灯者的剪影在雨里走远，只留一盏灯",
+      "keyframe_image_prompt": "full shot, silhouette of a person holding a brass lantern walking away in rain, backlit, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette",
+      "image_to_video_prompt": "slow dolly out, figure walks away, lantern glow shrinks, rain intensifies, 24fps",
+      "negative_prompt": "text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts",
+      "seed": 20260006
+    }
+  ]
+}

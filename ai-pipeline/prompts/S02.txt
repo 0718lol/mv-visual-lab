@@ -1,0 +1,13 @@
+# S02 灯芯特写  特写  6.0s-10.5s  handheld micro-drift
+# 画面：灯罩内灯芯与火焰，玻璃上有水痕
+
+## 关键帧（文生图 / 图生图）
+macro close-up of a candle flame inside a brass lantern glass, water droplets on glass, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette
+
+## 图生视频（镜头运动）
+static macro shot with subtle handheld breathing, flame flickers gently, focus breathing, 24fps
+
+## 负面提示（通用）
+text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts
+
+## 种子 seed = 20260002（便于复现同一镜；换镜请改 seed）

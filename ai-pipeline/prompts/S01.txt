@@ -1,0 +1,13 @@
+# S01 远景推进  大远景  0.0s-6.0s  slow push-in
+# 画面：雨夜荒野，远处一盏提灯，人不可见
+
+## 关键帧（文生图 / 图生图）
+extreme wide shot, a tiny brass lantern glowing in a vast dark rain field, no human, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette
+
+## 图生视频（镜头运动）
+slow dolly in toward the lantern, rain falling, mist drifting left to right, 24fps, no camera shake
+
+## 负面提示（通用）
+text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts
+
+## 种子 seed = 20260001（便于复现同一镜；换镜请改 seed）

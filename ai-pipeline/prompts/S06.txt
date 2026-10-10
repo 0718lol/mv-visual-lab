@@ -1,0 +1,13 @@
+# S06 背影剪影  全景  28.0s-34.0s  slow pull-out
+# 画面：提灯者的剪影在雨里走远，只留一盏灯
+
+## 关键帧（文生图 / 图生图）
+full shot, silhouette of a person holding a brass lantern walking away in rain, backlit, cinematic still, night, heavy rain, volumetric fog, warm tungsten lamp light, deep indigo shadows, film grain, 35mm, shallow depth of field, muted teal and amber palette
+
+## 图生视频（镜头运动）
+slow dolly out, figure walks away, lantern glow shrinks, rain intensifies, 24fps
+
+## 负面提示（通用）
+text, watermark, logo, extra limbs, distorted geometry, plastic skin, oversaturated, flat studio lighting, grey seamless backdrop, HDR halos, jpeg artifacts
+
+## 种子 seed = 20260006（便于复现同一镜；换镜请改 seed）
